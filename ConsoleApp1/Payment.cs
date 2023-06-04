@@ -74,6 +74,10 @@ namespace ConsoleApp1
                     Console.WriteLine("Year: " + ticket.SelectedMovie.Year);
                     Console.WriteLine("Genre: " + ticket.SelectedMovie.Genre);
                     Console.WriteLine("Age Limit: " + ticket.SelectedMovie.AgeLimit);
+                    Console.WriteLine("Name's Customer: " + ticket.Customer.Name);
+                    Console.WriteLine("Phone's Customer: " + ticket.Customer.Phone);
+                    Console.WriteLine("Email's Customer: " + ticket.Customer.Email);
+                    Console.WriteLine("Age's Customer: " + ticket.Customer.Age);
                     Console.WriteLine();
                 }
             }

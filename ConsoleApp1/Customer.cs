@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     internal class Customer: Person
     {
-        public int age;
+        private int age;
         public Customer() { }
         public int Age { get { return age; } set {  age = value; } }
         public Customer(string name, string phone, string email,int age): base(name,phone,email)

@@ -46,18 +46,24 @@ namespace ConsoleApp1
                         movieList.Remove();
                         break;
                     case "7":
-                        Console.WriteLine("What your movie you want :");
-                        string movieselected = Console.ReadLine();
-                        ticket.SelectMovie(movieselected,movieList);
+                        Console.WriteLine("What movie do you want:");
+                        string movieSelected = Console.ReadLine();
+                        ticket.SelectMovie(movieSelected, movieList);
                         ticket.PrintTicketInfo();
-                        ticketList.AddTicket(ticket);
-                        Console.WriteLine("Payment id:");
-                        string paymentID = Console.ReadLine();
-                        Console.WriteLine("Amount:");
-                        decimal amount = decimal.Parse(Console.ReadLine());
-                        Payment payment = new Payment(paymentID,amount,DateTime.Now);
-                        payment.AssignTicket(ticket);
-                        payment.PrintPaymentInfo();
+
+                        bool movieFound = (ticket.SelectedMovie != null);
+
+                        if (movieFound)
+                        {
+                            ticketList.AddTicket(ticket);
+                            Console.WriteLine("Payment ID:");
+                            string paymentID = Console.ReadLine();
+                            Console.WriteLine("Amount:");
+                            decimal amount = decimal.Parse(Console.ReadLine());
+                            Payment payment = new Payment(paymentID, amount, DateTime.Now);
+                            payment.AssignTicket(ticket);
+                            payment.PrintPaymentInfo();
+                        }
                         break;
                     case "8":
                         continueAdding = false;
