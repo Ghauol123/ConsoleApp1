@@ -9,7 +9,6 @@ namespace ConsoleApp1
     internal class ListEmP: Idata
     {
         private List<Employee> employees;
-        Employee employee = new Employee();
         public ListEmP()
         {
             employees = new List<Employee>();
@@ -18,21 +17,21 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Enter Employee Details:");
             Console.Write("Name: ");
-            employee.Name = Console.ReadLine();
+            string Name = Console.ReadLine();
             Console.Write("Phone: ");
-            employee.Phone = Console.ReadLine();
+            string Phone = Console.ReadLine();
             Console.Write("Email: ");
-            employee.Email = Console.ReadLine();
+            string Email = Console.ReadLine();
             Console.WriteLine("ID:");
-            employee.EmployeeId = int.Parse(Console.ReadLine());
+            int EmployeeId = int.Parse(Console.ReadLine());
+            Employee employee = new Employee(Name,Phone,Email,EmployeeId);
             employees.Add(employee);
         }
         public void Remove()
         {
-            Console.WriteLine("Enter the name of the employee to remove:");
-            string nameToDelete = Console.ReadLine();
-
-            Employee employeeToRemove = employees.FirstOrDefault(employee => employee.Name == nameToDelete);
+            Console.WriteLine("Input Id you want to remove");
+            int id = int.Parse(Console.ReadLine());
+            Employee employeeToRemove = employees.Find(employee => employee.EmployeeId == id);
             if (employeeToRemove != null)
             {
                 employees.Remove(employeeToRemove);
@@ -43,6 +42,8 @@ namespace ConsoleApp1
                 Console.WriteLine("Employee not found.");
             }
         }
+
+
 
         public void DisplayEmployees()
         {

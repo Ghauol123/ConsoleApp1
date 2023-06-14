@@ -10,7 +10,12 @@ namespace ConsoleApp1
     {
         private int age;
         public Customer() { }
-        public int Age { get { return age; } set {  age = value; } }
+        public int Age { get{return age;}
+            set
+            {
+                age = value;
+            }
+        }
         public Customer(string name, string phone, string email,int age): base(name,phone,email)
         {
             Age = age;

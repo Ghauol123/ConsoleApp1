@@ -11,6 +11,7 @@ namespace ConsoleApp1
             TicketList ticketList = new TicketList();
             Ticket ticket = new Ticket();
 
+
             bool continueAdding = true;
 
             while (continueAdding)
@@ -21,7 +22,8 @@ namespace ConsoleApp1
                 Console.WriteLine("4. Add Movie");
                 Console.WriteLine("5. Display Movies");
                 Console.WriteLine("6. Remove Movie");
-                Console.WriteLine("7. Exit");
+                Console.WriteLine("7. Buy Tickets");
+                Console.WriteLine("8. Exit");
                 Console.Write("Enter your choice: ");
                 string choice = Console.ReadLine();
 
@@ -51,20 +53,31 @@ namespace ConsoleApp1
                         ticket.SelectMovie(movieSelected, movieList);
                         ticket.PrintTicketInfo();
 
-                        bool movieFound = (ticket.SelectedMovie != null);
+                        bool movieFound = (ticket.Movie != null);
 
                         if (movieFound)
                         {
-                            ticketList.AddTicket(ticket);
                             Console.WriteLine("Payment ID:");
                             string paymentID = Console.ReadLine();
-                            Console.WriteLine("Amount:");
-                            decimal amount = decimal.Parse(Console.ReadLine());
-                            Payment payment = new Payment(paymentID, amount, DateTime.Now);
-                            payment.AssignTicket(ticket);
+                            Payment payment = new Payment(paymentID, DateTime.Now);
+                            Console.WriteLine("How many tickets do you want to purchase?");
+                            int numberOfTickets = int.Parse(Console.ReadLine());
+                            payment.NumberOfTicket = numberOfTickets;
+                            Console.WriteLine("You will buy " + numberOfTickets + " " + movieSelected + " movie tickets");
+
+                            for (int i = 0; i < numberOfTickets; i++)
+                            {
+                                ticketList.AddTicket(ticket); // Thêm vé vào danh sách vé chung (ticketList)
+                            }
+                            payment.AssignTicket(ticket); // Gán vé cho thanh toán
                             payment.PrintPaymentInfo();
                         }
-                        break;
+                        else
+                        {
+                            Console.WriteLine("Movie not found in the list. Payment ID is not required.");
+                        }
+                
+                break;
                     case "8":
                         continueAdding = false;
                         break;

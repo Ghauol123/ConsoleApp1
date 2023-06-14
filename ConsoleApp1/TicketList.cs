@@ -1,34 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
 
-namespace ConsoleApp1
-{
-    internal class TicketList
+    namespace ConsoleApp1
     {
-        private List<Ticket> tickets;
-
-        public TicketList()
+        internal class TicketList
         {
-            tickets = new List<Ticket>();
-        }
+            private List<Ticket> tickets;
 
-        public void AddTicket(Ticket ticket)
-        {
-            tickets.Add(ticket);
-        }
+            public TicketList()
+            {
+                tickets = new List<Ticket>();
+            }
 
-        public void RemoveTicket(Ticket ticket)
-        {
-            tickets.Remove(ticket);
-        }
+            public void AddTicket(Ticket ticket)
+            {
+                tickets.Add(ticket);
+            }
 
-        public List<Ticket> GetTickets()
-        {
-            return tickets;
+            public void RemoveTicket(Ticket ticket)
+            {
+                tickets.Remove(ticket);
+            }
+
+            public List<Ticket> GetTickets()
+            {
+                return tickets;
+            }
         }
-        
     }
-}

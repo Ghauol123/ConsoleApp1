@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ namespace ConsoleApp1
         private List<Movie> movies;
         KidMovie kidMovie = new KidMovie();
         AdultMovie adultMovie = new AdultMovie();
+        
         public ListMovie()
         {
             movies = new List<Movie>();

@@ -17,8 +17,9 @@ namespace ConsoleApp1
         public int EmployeeId { get { return employeeId; } set {  employeeId = value; } }
         public override void PrintInfo()
         {
-            base.PrintInfo();
+            Console.WriteLine("Employee information:");
             Console.WriteLine("Id:" + EmployeeId);
+            base.PrintInfo();
         }
     }
 }

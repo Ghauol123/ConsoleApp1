@@ -13,8 +13,9 @@ namespace ConsoleApp1
         private string phone;
         private string email;
         public string Name { get { return name; } set { name = value; } }
-        public string Phone { get { return phone; } set {  phone = value; } }
-        public string Email { get { return email; } set {  email = value; } }
+        public string Phone { get{return phone; } set { phone = value; } }
+        public string Email { get{return email; } set { email = value; } }
+
         public Person() { }
 
         public Person(string name, string phone, string email)
@@ -25,7 +26,6 @@ namespace ConsoleApp1
         }
         public virtual void PrintInfo()
         {
-            Console.WriteLine("Customer Information:");
             Console.WriteLine("Name: " + Name);
             Console.WriteLine("Phone: " + Phone);
             Console.WriteLine("Email:" +  Email);

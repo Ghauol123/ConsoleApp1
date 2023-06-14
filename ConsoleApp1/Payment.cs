@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -12,6 +9,7 @@ namespace ConsoleApp1
         private decimal amount;
         private DateTime paymentDate;
         private TicketList ticketList;
+        private int numberOfTicket;
 
         public string PaymentID
         {
@@ -37,12 +35,22 @@ namespace ConsoleApp1
             set { ticketList = value; }
         }
 
-        public Payment(string paymentID, decimal amount, DateTime paymentDate)
+        public int NumberOfTicket
+        {
+            get { return numberOfTicket; }
+            set { numberOfTicket = value; }
+        }
+
+        public Payment(string paymentID, DateTime paymentDate)
         {
             PaymentID = paymentID;
-            Amount = amount;
+            Amount = 100;
             PaymentDate = paymentDate;
             TicketList = new TicketList();
+        }
+
+        public Payment()
+        {
         }
 
         public void AssignTicket(Ticket ticket)
@@ -59,7 +67,6 @@ namespace ConsoleApp1
         {
             Console.WriteLine("Payment Information:");
             Console.WriteLine("Payment ID: " + PaymentID);
-            Console.WriteLine("Amount: " + Amount);
             Console.WriteLine("Payment Date: " + PaymentDate);
 
             List<Ticket> tickets = TicketList.GetTickets();
@@ -67,19 +74,21 @@ namespace ConsoleApp1
             if (tickets.Count > 0)
             {
                 Console.WriteLine("Tickets:");
+
                 foreach (Ticket ticket in tickets)
                 {
                     Console.WriteLine("Ticket ID: " + ticket.TicketID);
-                    Console.WriteLine("Movie: " + ticket.SelectedMovie.Name);
-                    Console.WriteLine("Year: " + ticket.SelectedMovie.Year);
-                    Console.WriteLine("Genre: " + ticket.SelectedMovie.Genre);
-                    Console.WriteLine("Age Limit: " + ticket.SelectedMovie.AgeLimit);
+                    Console.WriteLine("Movie: " + ticket.Movie.Name);
+                    Console.WriteLine("Year: " + ticket.Movie.Year);
+                    Console.WriteLine("Genre: " + ticket.Movie.Genre);
+                    Console.WriteLine("Age Limit: " + ticket.Movie.AgeLimit);
                     Console.WriteLine("Name's Customer: " + ticket.Customer.Name);
                     Console.WriteLine("Phone's Customer: " + ticket.Customer.Phone);
                     Console.WriteLine("Email's Customer: " + ticket.Customer.Email);
                     Console.WriteLine("Age's Customer: " + ticket.Customer.Age);
-                    Console.WriteLine();
                 }
+                decimal totalAmount = NumberOfTicket * amount;
+                Console.WriteLine("Total Amount: " + totalAmount);
             }
             else
             {
