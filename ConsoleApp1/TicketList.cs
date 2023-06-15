@@ -19,12 +19,10 @@
             {
                 tickets.Add(ticket);
             }
-
-            public void RemoveTicket(Ticket ticket)
-            {
-                tickets.Remove(ticket);
-            }
-
+        public void RemoveTicket(Ticket ticket)
+        {
+            tickets.Remove(ticket);
+        }
             public List<Ticket> GetTickets()
             {
                 return tickets;

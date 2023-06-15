@@ -57,7 +57,6 @@ namespace ConsoleApp1
         {
             TicketList.AddTicket(ticket);
         }
-
         public void RemoveTicket(Ticket ticket)
         {
             TicketList.RemoveTicket(ticket);
