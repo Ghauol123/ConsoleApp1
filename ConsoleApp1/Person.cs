@@ -12,9 +12,45 @@ namespace ConsoleApp1
         private string name;
         private string phone;
         private string email;
-        public string Name { get { return name; } set { name = value; } }
-        public string Phone { get{return phone; } set { phone = value; } }
-        public string Email { get{return email; } set { email = value; } }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty.");
+                }
+                name = value;
+            }
+        }
+
+        public string Phone
+        {
+            get { return phone; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Phone cannot be null or empty.");
+                }
+                phone = value;
+            }
+        }
+
+        public string Email
+        {
+            get { return email; }
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Email cannot be null or empty.");
+                }
+                email = value;
+            }
+        }
+
 
         public Person() { }
 

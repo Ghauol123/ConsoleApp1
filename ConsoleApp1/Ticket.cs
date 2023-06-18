@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 
 namespace ConsoleApp1
 {
@@ -96,12 +97,12 @@ namespace ConsoleApp1
                     }
                 }
             }
+
         }
 
         public void PrintTicketInfo()
         {
-            bool isMovieSelected = Movie != null;
-            if (isMovieSelected)
+            if (Movie != null && Customer != null)
             {
                 Console.WriteLine("Ticket Information:");
                 Console.WriteLine("Ticket ID: " + TicketID);
@@ -116,8 +117,9 @@ namespace ConsoleApp1
             }
             else
             {
-                Console.WriteLine("No movie selected.");
+                Console.WriteLine("No movie selected or customer information missing.");
             }
         }
+
     }
 }

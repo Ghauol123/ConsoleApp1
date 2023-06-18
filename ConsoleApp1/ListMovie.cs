@@ -11,6 +11,10 @@ namespace ConsoleApp1
         private List<Movie> movies;
         KidMovie kidMovie = new KidMovie();
         AdultMovie adultMovie = new AdultMovie();
+
+
+// Thêm một bộ phim người lớn
+
         
         public ListMovie()
         {
